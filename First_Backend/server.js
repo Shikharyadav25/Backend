@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+console.log('Hello World! This is my first Node.js server ');
+
 let data = ['Shikhar']
 
 //Middleware
@@ -46,6 +48,7 @@ app.delete('/api/data/:name', (req,res) => {
     console.log('We deleted the last entry');
     res.sendStatus(203);
 });
+
 
 //CREATE- POST  READ- GET   UPDATE- PUT     DELETE- DELETE
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
