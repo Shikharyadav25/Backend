@@ -1,7 +1,5 @@
-import Database from 'better-sqlite3'
-
-// Use a synchronous, lightweight SQLite driver for simple local storage
-const db = new Database(':memory:')
+import { DatabaseSync } from 'node:sqlite'
+const db = new DatabaseSync(':memory:')
 
 // Execute SQL statements from strings
 db.exec(`
@@ -18,9 +16,8 @@ db.exec(`
         user_id INTEGER,
         task TEXT,
         completed BOOLEAN DEFAULT 0,
-        FOREIGN KEY (user_id) REFERENCES users(id)
-    )
+        FOREIGN KEY(user_id) REFERENCES users(id)
+    )    
 `)
 
 export default db
-    
